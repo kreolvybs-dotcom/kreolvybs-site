@@ -2695,5 +2695,23 @@ g.theme.bgOpacity = 20;
 })();
 checkURL();
 </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabaseClient = supabase.createClient(
+  "https://bskapbqvaenvhfheqcpc.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJza2FwYnF2YWVudmhmaGVxY3BjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1MzAyMDEsImV4cCI6MjA5MTEwNjIwMX0.U7as6dY8fxwqUBMgSm6lbLiGDzWJSCll5HHeU7cjxhQ"
+);
+
+async function loadSongs() {
+  const { data, error } = await supabaseClient
+    .from("songs")
+    .select("*");
+
+  console.log(data);
+}
+
+loadSongs();
+  </script>
 </body>
 </html>
